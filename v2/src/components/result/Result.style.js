@@ -94,7 +94,7 @@ export const Background = styled.img`
 // -------
 
 export const ButtonWrapper = styled.div`
-  width: 30%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -112,24 +112,24 @@ export const BasicBackWrapper = styled.div`
   h2 {
     margin-top: 25px;
   }
+
 `;
 
 export const BasicBacks = styled.div`
   display: flex;
   > input {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
-    border: 1px solid #a0a0a0;
+    border: 1px solid #ffffff;
     margin: 10px 10px 10px 0px;
   }
 `;
 export const BasicBack = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: ${(props) => props.backColor};
   border-radius: 10px;
-  border: 1px solid #a0a0a0;
   cursor: pointer;
   margin: 10px 10px 10px 0px;
 `;
@@ -207,3 +207,9 @@ export const Exit = styled.h3`
   align-items: Center;
   cursor: pointer;
 `;
+export const ExplanText = styled.img`
+`
+export const logo = styled.img`
+height:112px;
+width:250px;
+`

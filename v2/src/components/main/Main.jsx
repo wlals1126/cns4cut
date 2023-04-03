@@ -7,11 +7,15 @@ import "@tensorflow/tfjs-backend-webgl";
 import * as bodyPix from "@tensorflow-models/body-pix";
 import Webcam from "react-webcam";
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
+import takePicture from "../../assets/takePicture.svg";
 
 import schoolBackImg from "../../assets/dgswback.jpg";
 import schoolFrontImg from "../../assets/main.jpg";
 import playGroundImg from "../../assets/school.jpg";
+import setBackground from "../../assets/setBackground.svg";
+import setFilter from "../../assets/setFilter.svg"
+
 import lupi from "../../assets/lupi.png"
 import spongibab from "../../assets/spongibab.jpg"
 import { useNavigate } from "react-router-dom";
@@ -43,7 +47,7 @@ const Main = () => {
 
   useEffect(() => {
     console.log(backImage)
-  },[backImage])
+  }, [backImage])
 
 
   async function drawMask(
@@ -54,7 +58,7 @@ const Main = () => {
     originCtx,
     originCanvas,
     context,
-  ){
+  ) {
     requestAnimationFrame(() => drawMask(
       webcam,
       canvas,
@@ -65,22 +69,22 @@ const Main = () => {
       context,
     ))
     const segmentation = await bodypixnet.segmentPerson(webcam);
-      const mask = bodyPix.toMask(segmentation);
-      tempCtx.putImageData(mask, 0, 0);
+    const mask = bodyPix.toMask(segmentation);
+    tempCtx.putImageData(mask, 0, 0);
 
-      // 웹캠을 저장
-      originCtx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
-      originCtx.save();
-      originCtx.globalCompositeOperation = "destination-out";
-      originCtx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
-      originCtx.restore();
+    // 웹캠을 저장
+    originCtx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
+    originCtx.save();
+    originCtx.globalCompositeOperation = "destination-out";
+    originCtx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
+    originCtx.restore();
 
-      // 진짜 ctx를 초기화
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (backImage) {
-        context.drawImage(backImage, 0, 0, canvas.width, canvas.height);
-      }
-      context.drawImage(originCanvas, 0, 0, canvas.width, canvas.height);
+    // 진짜 ctx를 초기화
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    if (backImage) {
+      context.drawImage(backImage, 0, 0, canvas.width, canvas.height);
+    }
+    context.drawImage(originCanvas, 0, 0, canvas.width, canvas.height);
   }
 
   let req;
@@ -150,7 +154,7 @@ const Main = () => {
       img.src = backImgName;
       setBackImage(img);
       // img.onload = () => {
-        //   setBackImage(img);
+      //   setBackImage(img);
       // };
     } else {
       setBackImage(null)
@@ -185,14 +189,14 @@ const Main = () => {
     facingMode: "user",
   };
 
-  function resetRAF(){
+  function resetRAF() {
     cancelAnimationFrame(req);
   }
 
   return (
     <M.Wrapper>
       <M.CamWrapper>
-        <Webcam
+        {/* <Webcam
           ref={webcamRef}
           audio={false}
           width={1280}
@@ -200,32 +204,63 @@ const Main = () => {
           screenshotFormat="image/jpeg"
           className="webcam"
           //   videoConstraints={videoConstraints}
-        />
+        /> */}
         <canvas ref={canvasRef} className="canvas" />
       </M.CamWrapper>
       <M.ButtonWrapper>
         <M.Header>
-          
+
           <M.HeaderImg src={logo}></M.HeaderImg>
-          <M.Title>인생두컷</M.Title>
         </M.Header>
-        <M.Button onClick={() => clickHandler(lupi)}>
-          잔망루피
-        </M.Button>
-        <M.Button onClick={() => clickHandler(spongibab)}>
-          스폰지밥
-        </M.Button>
-        <M.Button onClick={() => clickHandler(playGroundImg)}>
-          학교 운동장
-        </M.Button>
-        <M.Button onClick={() => clickHandler(schoolFrontImg)}>
-          학교 기숙사동 정문
-        </M.Button>
-        <M.Button onClick={() => clickHandler(schoolBackImg)}>
-          학교 크로마키
-        </M.Button>
+        <div>
+        <div>
+          <M.TextImg src={setBackground}></M.TextImg>
+          <div>
+            <M.Button onClick={() => clickHandler(lupi)}>
+              잔망루피
+            </M.Button>
+            <M.Button onClick={() => clickHandler(spongibab)}>
+              스폰지밥
+            </M.Button>
+            <M.Button onClick={() => clickHandler(playGroundImg)}>
+              학교 운동장
+            </M.Button>
+          </div>
+        </div>
+        <div>
+        <div>
+          <M.Button onClick={() => clickHandler(schoolFrontImg)}>
+            학교 기숙사동
+          </M.Button>
+          <M.Button onClick={() => clickHandler(schoolBackImg)}>
+            학교 크로마키
+          </M.Button>
+          <M.Button onClick={() => clickHandler(schoolBackImg)}>
+            학교 크로마키
+          </M.Button>
+
+        </div>
+        </div>
+        </div>
+        <div>
+          <M.TextImg2 src={setFilter}></M.TextImg2>
+        <div>
+          <M.Button onClick={() => clickHandler(lupi)}>
+            잔망루피
+          </M.Button>
+          <M.Button onClick={() => clickHandler(spongibab)}>
+            스폰지밥
+          </M.Button>
+          <M.Button onClick={() => clickHandler(playGroundImg)}>
+            학교 운동장
+          </M.Button>
+        </div>
+        </div>
+
         {/* <M.Button onClick={() => resetRAF()}>배경 없애기</M.Button> */}
-        <M.TakeButton onClick={() => snapshot()}>사진 찍기</M.TakeButton>
+        <M.TakeButton src={takePicture} onClick={() => snapshot()}></M.TakeButton>
+        <img src={takePicture} onClick={() => snapshot()} ></img>
+        <M.TakeButton src={takePicture}></M.TakeButton>
         {/* {
             image.map((e,idx) => (
                 <img src={e} key={idx} />

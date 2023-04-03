@@ -5,15 +5,19 @@ import { imageState } from "../../global/image";
 import * as R from "./Result.style";
 import logo from "../../assets/logo.png";
 import SampleCom from "./sampleCom/SampleCom";
-
+import setColor from "../../assets/setColor.svg";
+import setImg from "../../assets/setImg.svg";
+import setText from "../../assets/setText.svg";
+import setOption from "../../assets/setOption.svg";
 import cloud from "../../assets/backImg/cloud.jpg";
 import galaxy from "../../assets/backImg/galaxy.jpg";
+import newLogo from "../../assets/logo.svg";
 
 const Result = () => {
   // 기본색은 검정
   const [resultBackColor, setResultBackColor] = useState("black");
   const [resultBackImg, setResultBackImg] = useState();
-  const [comment, setCommnet] = useState("2022년 10월 22일 exco에서");
+  const [comment, setCommnet] = useState("2023년 5월 5일 어린이날");
   //   const [commentOption,setCommentOption] = useState({
   //     color:"white",
   //     bold:false,
@@ -27,8 +31,8 @@ const Result = () => {
 
   const colors = [
     "black",
-    "#FFFAFA", // 흰색
-    "#f7e600",
+    "#eeeeee", // 흰색
+    "#FEC7CD",
     "#50bcdf",
   ];
 
@@ -76,8 +80,9 @@ const Result = () => {
         </R.ResultContent>
       </R.ResultWrapper>
       <R.ButtonWrapper>
+      <R.logo src={newLogo}/>
         <R.BasicBackWrapper>
-          <h2>색 테마(커스텀 가능)</h2>
+        <R.ExplanText src={setColor} />
           <R.BasicBacks>
             {colors.map((i) => (
               <R.BasicBack
@@ -95,10 +100,8 @@ const Result = () => {
           </R.BasicBacks>
         </R.BasicBackWrapper>
         <R.ImgBackWrapper>
-          <h2>또는 이미지 선택</h2>
+          <R.ExplanText src={setImg} />
           <R.ImgBack>
-            {/* <div></div>
-            <div></div> */}
             <SampleCom
               clickHandler={() => setResultBackImg(cloud)}
               source={cloud}
@@ -107,10 +110,15 @@ const Result = () => {
               clickHandler={() => setResultBackImg(galaxy)}
               source={galaxy}
             />
+            <SampleCom
+              clickHandler={() => setResultBackImg(galaxy)}
+              source={galaxy}
+            />
           </R.ImgBack>
         </R.ImgBackWrapper>
+
         <R.CommentWrapper>
-          <h2>문구 작성(비우기 가능)</h2>
+        <R.ExplanText src={setText} />
           <input
             type="text"
             value={comment}
@@ -118,7 +126,7 @@ const Result = () => {
           />
         </R.CommentWrapper>
         <R.CommentOptionWrapper>
-          <h2>문구 옵션</h2>
+        <R.ExplanText src={setOption} />
           <R.CommentOptions>
             <R.CommentOptionColor
               selected={commentColor === "black"}

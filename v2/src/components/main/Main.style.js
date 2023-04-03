@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     display:flex;
     box-sizing:border-box;
     position:relative;
-    background-color:black;
+    background-color:white;
 
 `
 export const CamWrapper = styled.div`
@@ -34,6 +34,7 @@ export const ButtonWrapper = styled.div`
     flex-direction:column;
     justify-content:space-around;
     align-items:center;
+    background-color:white;
 `
 export const Header = styled.header`
     display:Flex;
@@ -42,20 +43,24 @@ export const Header = styled.header`
 export const HeaderImg = styled.img`
     width:200px;
 `
+export const TextImg = styled.img`
+    width:100px;
+`
+export const TextImg2 = styled.img`
+    width:70px;
+`
 export const Title = styled.h1`
     color:white;
 `
 
 export const Button = styled.button`
       cursor: pointer;
-  width: 200px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   outline: none;
   border: 0px;
-  border-radius: 15px;
-  background-color: #0095f6;
-  color: white;
+  background-color: #f2f2f2;
+  margin:10px;
 `
-export const TakeButton = styled(Button)`
-  height: 100px;
+export const TakeButton = styled.image`
 `

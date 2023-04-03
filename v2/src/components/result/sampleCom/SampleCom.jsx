@@ -15,6 +15,7 @@ const SampleCom = ({
                 <div/><div/>
                 <img src={source} />
             </S.SecondImg>
+            
         </S.Wrapper>
     );
 };
