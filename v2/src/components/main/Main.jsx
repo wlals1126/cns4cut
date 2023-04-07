@@ -196,7 +196,7 @@ const Main = () => {
   return (
     <M.Wrapper>
       <M.CamWrapper>
-        {/* <Webcam
+        <Webcam
           ref={webcamRef}
           audio={false}
           width={1280}
@@ -204,7 +204,7 @@ const Main = () => {
           screenshotFormat="image/jpeg"
           className="webcam"
           //   videoConstraints={videoConstraints}
-        /> */}
+        />
         <canvas ref={canvasRef} className="canvas" />
       </M.CamWrapper>
       <M.ButtonWrapper>
