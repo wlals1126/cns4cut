@@ -16,7 +16,10 @@ import playGroundImg from "../../assets/school.jpg";
 import setBackground from "../../assets/setBackground.svg";
 import setFilter from "../../assets/setFilter.svg"
 
-import lupi from "../../assets/lupi.png"
+//import lupi from "../../assets/lupi.png"
+import dinosaur from "../../assets/dinosaur.jpg"
+import cb from "../../assets/cb.jpg"
+import jjanggu from "../../assets/jjanggu.png";
 import spongibab from "../../assets/spongibab.jpg"
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -216,8 +219,8 @@ const Main = () => {
         <div>
           <M.TextImg src={setBackground}></M.TextImg>
           <div>
-            <M.Button onClick={() => clickHandler(lupi)}>
-              잔망루피
+            <M.Button onClick={() => clickHandler(dinosaur)}>
+              쥬라기 스쿨
             </M.Button>
             <M.Button onClick={() => clickHandler(spongibab)}>
               스폰지밥
@@ -235,8 +238,8 @@ const Main = () => {
           <M.Button onClick={() => clickHandler(schoolBackImg)}>
             학교 크로마키
           </M.Button>
-          <M.Button onClick={() => clickHandler(schoolBackImg)}>
-            학교 크로마키
+          <M.Button onClick={() => clickHandler(cb)}>
+            벚꽃
           </M.Button>
 
         </div>
@@ -245,11 +248,11 @@ const Main = () => {
         <div>
           <M.TextImg2 src={setFilter}></M.TextImg2>
         <div>
-          <M.Button onClick={() => clickHandler(lupi)}>
-            잔망루피
+          <M.Button onClick={() => clickHandler(dinosaur)}>
+            쥬라기 스쿨
           </M.Button>
-          <M.Button onClick={() => clickHandler(spongibab)}>
-            스폰지밥
+          <M.Button onClick={() => clickHandler(jjanggu)}>
+            짱구
           </M.Button>
           <M.Button onClick={() => clickHandler(playGroundImg)}>
             학교 운동장
