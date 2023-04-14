@@ -234,6 +234,7 @@ const Main = () => {
               <M.Button onClick={() => clickHandler(schoolFrontImg)}>
                 학교 기숙사동
               </M.Button>
+              <M.Button onClick={() => clickHandler(schoolBackImg)}>
                 학교 크로마키
               </M.Button>
               <M.Button onClick={() => clickHandler(cb)}>벚꽃</M.Button>
